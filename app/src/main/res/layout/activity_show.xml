@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="主要业务"
+            android:textColor="#3087ea"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@drawable/common_nav_message_black_n" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_20">
+
+        <ImageView
+            android:id="@+id/show_imageone"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:src="@drawable/inquiry_bg" />
+
+        <Button
+            android:id="@+id/bt_inquiry"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@+id/show_imageone"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="@drawable/tip_box"
+            android:gravity="center"
+            android:text="问诊" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_45"
+            android:layout_alignRight="@+id/show_imageone"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@drawable/doctor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20">
+
+        <ImageView
+            android:id="@+id/show_imagetwo"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:layout_marginTop="@dimen/dp_10"
+            android:src="@drawable/promise_bg" />
+
+        <Button
+            android:id="@+id/bt_answer"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@+id/show_imagetwo"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/tip_box"
+            android:text="答疑" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:text="我的业务"
+        android:textColor="#2196F3"
+        android:textSize="16sp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20">
+
+        <ImageView
+            android:id="@+id/show_imagethree"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:src="@drawable/my_information_bg" />
+
+        <Button
+            android:id="@+id/bt_manager"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@+id/show_imagethree"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="@drawable/tip_box"
+            android:text="管理" />
+
+<!--        <com.facebook.drawee.view.SimpleDraweeView-->
+<!--            android:id="@+id/show_doctorimage"-->
+<!--            android:layout_width="@dimen/dp_105"-->
+<!--            android:layout_height="@dimen/dp_130"-->
+<!--            android:layout_marginLeft="@dimen/dp_10"-->
+<!--            android:layout_marginTop="@dimen/dp_10" />-->
+
+        <TextView
+            android:id="@+id/zeng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_toRightOf="@+id/show_doctorimage"
+            android:text="曾小贤"
+            android:textSize="@dimen/dp_16" />
+
+        <TextView
+            android:id="@+id/doctoraddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/zeng"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_toRightOf="@+id/show_doctorimage"
+            android:text="辽宁省辽阳市大保健医院"
+            android:textSize="@dimen/dp_12" />
+
+        <TextView
+            android:id="@+id/doctorzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/doctoraddress"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_toRightOf="@+id/show_doctorimage"
+            android:text="副主任医师"
+            android:textSize="@dimen/dp_12" />
+
+        <TextView
+            android:id="@+id/doctorsubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/doctorzhi"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_toRightOf="@+id/show_doctorimage"
+            android:text="小儿科"
+            android:textSize="@dimen/dp_12" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
