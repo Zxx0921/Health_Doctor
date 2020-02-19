@@ -33,6 +33,7 @@ public class ShowActivity extends BaseActivity {
 
     @Override
     protected int provideLayoutIds() {
+
         
         return R.layout.activity_show;
     }
