@@ -11,7 +11,7 @@ import butterknife.Unbinder;
 
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
-    protected P mPresenters;
+    protected P p;
     private Unbinder mUnbinder;
 
     @Override
@@ -19,9 +19,9 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         super.onCreate(savedInstanceState);
         setContentView(provideLayoutIds());
         mUnbinder = ButterKnife.bind(this);
-        mPresenters = providePresenter();
-        if (mPresenters != null) {
-            mPresenters.attachView(this);
+        p = providePresenter();
+        if (p != null) {
+            p.attachViews(this);
         }
         initView();
         initData();
@@ -40,8 +40,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
-        if (mPresenters != null) {
-            mPresenters.detachView();
+        if (p != null) {
+            p.unAttachViews();
         }
     }
 

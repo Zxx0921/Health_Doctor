@@ -125,12 +125,12 @@
             android:background="@drawable/tip_box"
             android:text="管理" />
 
-<!--        <com.facebook.drawee.view.SimpleDraweeView-->
-<!--            android:id="@+id/show_doctorimage"-->
-<!--            android:layout_width="@dimen/dp_105"-->
-<!--            android:layout_height="@dimen/dp_130"-->
-<!--            android:layout_marginLeft="@dimen/dp_10"-->
-<!--            android:layout_marginTop="@dimen/dp_10" />-->
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/show_doctorimage"
+            android:layout_width="@dimen/dp_105"
+            android:layout_height="@dimen/dp_130"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10" />
 
         <TextView
             android:id="@+id/zeng"

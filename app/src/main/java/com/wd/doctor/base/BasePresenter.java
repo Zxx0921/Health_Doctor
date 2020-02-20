@@ -8,24 +8,16 @@ import java.lang.ref.WeakReference;
 
 public abstract class BasePresenter<V extends BaseActivity> {
 
-    private WeakReference<V> mWeakReference;
+    public V v;
 
-    protected void attachView(V v) {
-        mWeakReference = new WeakReference<>(v);
+    public void attachViews(V t) {
+        this.v = t;
     }
 
-    protected void detachView() {
-        if (mWeakReference != null) {
-            mWeakReference.clear();
-            mWeakReference = null;
+    public void unAttachViews() {
+        if (v != null) {
+            v = null;
         }
-    }
-
-    protected boolean isViewAttached() {
-        if (mWeakReference == null || mWeakReference.get() == null) {
-            return false;
-        }
-        return true;
     }
 
 }
