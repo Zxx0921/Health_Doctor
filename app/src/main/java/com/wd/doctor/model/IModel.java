@@ -1,6 +1,7 @@
 package com.wd.doctor.model;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.contract.IContract;
 import com.wd.doctor.utils.HealthDoctor;
 import com.wd.doctor.utils.HealthDoctorUtil;
@@ -41,6 +42,24 @@ public class IModel {
     public void getSettlein(String email, String code, String pwd1, String pwd2, String name
             , String inauguralHospital, int departmentId, int jobTitleId, String personalProfile, String goodField
             , IContract.IModelSettlein modelSettlein) {
-        
+
+    }
+
+    //病友圈列表展示
+    public void getPatient(int departmentId, int page, int count, IContract.IModelPatient patient) {
+        HealthDoctorUtil.getInstance().getCreateServer(HealthDoctor.class).getPatient(departmentId, page, count)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<PatientBean>() {
+                    @Override
+                    public void accept(PatientBean patientBean) throws Exception {
+                        patient.patientsSuccess(patientBean);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
     }
 }

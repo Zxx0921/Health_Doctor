@@ -1,6 +1,7 @@
 package com.wd.doctor.contract;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
 
 /**
@@ -21,6 +22,16 @@ public interface IContract {
         void avatarsSuccess(AvatarBean avatarBean);
     }
 
+    //病友圈列表展示
+    interface IViewPatient {
+        void patientSuccess(PatientBean patientBean);
+    }
+
+    //病友圈列表展示
+    interface IModelPatient {
+        void patientsSuccess(PatientBean patientBean);
+    }
+
     //申请入驻
     interface IViewSettlein {
         void settleinSuccess(SettleinBean settleinBean);
@@ -30,4 +41,5 @@ public interface IContract {
     interface IModelSettlein {
         void settleinsSuccess(SettleinBean settleinBean);
     }
+
 }

@@ -1,12 +1,14 @@
 package com.wd.doctor.utils;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * @ProjectName: Health_Doctor
@@ -27,4 +29,10 @@ public interface HealthDoctor {
             , @Field("inauguralHospital") String inauguralHospital, @Field("departmentId") int departmentId
             , @Field("jobTitleId") int jobTitleId, @Field("personalProfile") String personalProfile
             , @Field("goodField") String goodField);
+
+    //病友圈列表展示
+    @GET("doctor/sickCircle/v1/findSickCircleList")
+    Observable<PatientBean> getPatient(@Query("departmentId") int departmentId, @Query("page")
+            int page, @Query("count") int count);
+
 }
