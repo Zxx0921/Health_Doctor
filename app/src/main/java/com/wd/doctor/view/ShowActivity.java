@@ -42,7 +42,7 @@ public class ShowActivity extends BaseActivity implements IContract.IViewAvatar 
 
     @Override
     protected void initView() {
-        show_doctorimage = findViewById(R.id.show_doctorimage);
+        show_doctorimage = findViewById(R.id.doctorimage);
         bt_answer = findViewById(R.id.bt_answer);
         bt_inquiry = findViewById(R.id.bt_inquiry);
     }

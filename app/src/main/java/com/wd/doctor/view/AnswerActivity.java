@@ -1,5 +1,6 @@
 package com.wd.doctor.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wd.doctor.R;
+import com.wd.doctor.adapter.DepartmentAdapter;
 import com.wd.doctor.adapter.PatientAdapter;
 import com.wd.doctor.base.BaseActivity;
 import com.wd.doctor.base.BasePresenter;
+import com.wd.doctor.bean.DepartmentBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.contract.IContract;
 import com.wd.doctor.presenter.IPresenter;
@@ -21,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AnswerActivity extends BaseActivity implements IContract.IViewPatient {
+public class AnswerActivity extends BaseActivity implements IContract.IViewPatient, IContract.IViewDepartment {
 
 
     @BindView(R.id.anwser_back)
@@ -34,6 +37,10 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
     ImageView answerSearch;
     @BindView(R.id.answerbottomrec)
     RecyclerView answerbottomrec;
+    private PatientAdapter patientAdapter;
+    private DepartmentAdapter departmentAdapter;
+    private int id;
+    private IPresenter presenter;
 
     @Override
     protected void initData() {
@@ -43,8 +50,11 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
                 finish();
             }
         });
-        IPresenter presenter = (IPresenter) p;
-        presenter.getPatient(2, 1, 10);
+        presenter = (IPresenter) p;
+        presenter.getDepartment();
+        presenter.getPatient(3, 1, 10);
+
+
     }
 
     @Override
@@ -52,6 +62,9 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         answerbottomrec.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(this);
+        linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        answertoprec.setLayoutManager(linearLayoutManager1);
     }
 
     @Override
@@ -74,7 +87,34 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
     @Override
     public void patientSuccess(PatientBean patientBean) {
         List<PatientBean.ResultBean> list = patientBean.getResult();
-        PatientAdapter patientAdapter = new PatientAdapter(list, AnswerActivity.this);
+        patientAdapter = new PatientAdapter(list, AnswerActivity.this);
         answerbottomrec.setAdapter(patientAdapter);
+        patientAdapter.setPatientAdapter(new PatientAdapter.patientAdapter() {
+            @Override
+            public void callBack(int position) {
+                int sickCircleId = list.get(position).getSickCircleId();
+                String title = list.get(position).getTitle();
+                Intent intent = new Intent(AnswerActivity.this, SickDeatilActivity.class);
+                intent.putExtra("sickCircleId", sickCircleId);
+                intent.putExtra("title", title);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void departmentSuccess(DepartmentBean departmentBean) {
+        List<DepartmentBean.ResultBean> result = departmentBean.getResult();
+        departmentAdapter = new DepartmentAdapter(result, AnswerActivity.this);
+        answertoprec.setAdapter(departmentAdapter);
+        departmentAdapter.setDepartmentAdapter(new DepartmentAdapter.departmentAdapter() {
+
+
+            @Override
+            public void callBack(int i) {
+                id = result.get(i).getId();
+                presenter.getPatient(id, 1, 10);
+            }
+        });
     }
 }

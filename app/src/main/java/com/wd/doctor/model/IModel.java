@@ -1,7 +1,9 @@
 package com.wd.doctor.model;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.DepartmentBean;
 import com.wd.doctor.bean.PatientBean;
+import com.wd.doctor.bean.SickCircleBean;
 import com.wd.doctor.contract.IContract;
 import com.wd.doctor.utils.HealthDoctor;
 import com.wd.doctor.utils.HealthDoctorUtil;
@@ -54,6 +56,42 @@ public class IModel {
                     @Override
                     public void accept(PatientBean patientBean) throws Exception {
                         patient.patientsSuccess(patientBean);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
+    }
+
+    //查询病友圈详情
+    public void getSickCrircle(int sickCircleId, IContract.IModelSickCircle iModelSickCircle) {
+        HealthDoctorUtil.getInstance().getCreateServer(HealthDoctor.class).getSickCircle(sickCircleId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<SickCircleBean>() {
+                    @Override
+                    public void accept(SickCircleBean sickCircleBean) throws Exception {
+                        iModelSickCircle.sickCirclesSuccess(sickCircleBean);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
+    }
+
+    //查询科室
+    public void getDepartment(IContract.IModelDepartment modelDepartment) {
+        HealthDoctorUtil.getInstance().getCreateServer(HealthDoctor.class).getDepartment()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<DepartmentBean>() {
+                    @Override
+                    public void accept(DepartmentBean departmentBean) throws Exception {
+                        modelDepartment.departmentesSuccess(departmentBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

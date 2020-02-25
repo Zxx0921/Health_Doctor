@@ -1,8 +1,10 @@
 package com.wd.doctor.contract;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.DepartmentBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
+import com.wd.doctor.bean.SickCircleBean;
 
 /**
  * @ProjectName: Health_Doctor
@@ -40,6 +42,26 @@ public interface IContract {
     //申请入驻
     interface IModelSettlein {
         void settleinsSuccess(SettleinBean settleinBean);
+    }
+
+    //查询病友圈详情
+    interface IViewSickCircle {
+        void sickCircleSuccess(SickCircleBean sickCircleBean);
+    }
+
+    //查询病友圈详情
+    interface IModelSickCircle {
+        void sickCirclesSuccess(SickCircleBean sickCircleBean);
+    }
+
+    //查询科室
+    interface IViewDepartment {
+        void departmentSuccess(DepartmentBean departmentBean);
+    }
+
+    //查询科室
+    interface IModelDepartment {
+        void departmentesSuccess(DepartmentBean departmentBean);
     }
 
 }

@@ -1,8 +1,10 @@
 package com.wd.doctor.utils;
 
 import com.wd.doctor.bean.AvatarBean;
+import com.wd.doctor.bean.DepartmentBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
+import com.wd.doctor.bean.SickCircleBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -35,4 +37,11 @@ public interface HealthDoctor {
     Observable<PatientBean> getPatient(@Query("departmentId") int departmentId, @Query("page")
             int page, @Query("count") int count);
 
+    //查询病友圈详情
+    @GET("doctor/sickCircle/v1/findSickCircleInfo")
+    Observable<SickCircleBean> getSickCircle(@Query("sickCircleId") int sickCircleId);
+
+    //查询科室
+    @GET("share/knowledgeBase/v1/findDepartment")
+    Observable<DepartmentBean> getDepartment();
 }

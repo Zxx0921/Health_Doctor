@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/partlinear"
+    tools:context=".view.SickDeatilActivity">
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/parti_back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/common_icon_back_black_n"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"/>
+
+        <TextView
+            android:id="@+id/parti_title"
+            android:textSize="@dimen/dp_16"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/parti_name"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textSize="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="[病症]"
+        android:textColor="#03A9F4"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/parti_disease"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textSize="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="[科室]"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/parti_subject"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textSize="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="[病症详情]"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/parti_bing"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textSize="@dimen/dp_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="[治疗经历]"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/party_time"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/hospital_address"
+            android:textSize="@dimen/dp_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/zhiliaotime"
+            android:textSize="@dimen/dp_12"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/zhiliaojingli"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textSize="@dimen/dp_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="[相关图片]"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/parti_image"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="@dimen/dp_322"
+        android:layout_height="@dimen/dp_144"/>
+
+    <TextView
+        android:text="我的解答"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:textSize="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/part_xiang"
+        android:textSize="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="0dp">
+
+        <Button
+            android:id="@+id/bt_ling"
+            android:background="@drawable/request_selector"
+            android:text="评论"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="@dimen/dp_104"
+            android:layout_height="@dimen/dp_40"/>
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/part_edit"
+                android:background="@drawable/shuru_edit"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/partysend"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:src="@drawable/common_icon_send_n"
+                android:layout_toRightOf="@+id/part_edit"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/h_text"
+            android:layout_alignBottom="@+id/bt_ling"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="@dimen/dp_14"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
