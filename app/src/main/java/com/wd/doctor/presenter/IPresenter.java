@@ -3,11 +3,13 @@ package com.wd.doctor.presenter;
 import com.wd.doctor.base.BasePresenter;
 import com.wd.doctor.bean.AvatarBean;
 import com.wd.doctor.bean.DepartmentBean;
+import com.wd.doctor.bean.InquireSickBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SickCircleBean;
 import com.wd.doctor.contract.IContract;
 import com.wd.doctor.model.IModel;
 import com.wd.doctor.view.AnswerActivity;
+import com.wd.doctor.view.SearchActivity;
 import com.wd.doctor.view.ShowActivity;
 import com.wd.doctor.view.SickDeatilActivity;
 
@@ -46,7 +48,8 @@ public class IPresenter extends BasePresenter {
             }
         });
     }
- //查询病友圈详情
+
+    //查询病友圈详情
     public void getSickCirclees(int sickCircleId) {
         model.getSickCrircle(sickCircleId, new IContract.IModelSickCircle() {
             @Override
@@ -56,13 +59,25 @@ public class IPresenter extends BasePresenter {
             }
         });
     }
+
     //查询科室
-    public void getDepartment(){
+    public void getDepartment() {
         model.getDepartment(new IContract.IModelDepartment() {
             @Override
             public void departmentesSuccess(DepartmentBean departmentBean) {
                 AnswerActivity answerActivitys = (AnswerActivity) v;
                 answerActivitys.departmentSuccess(departmentBean);
+            }
+        });
+    }
+
+    //根据关键字查询病友圈
+    public void getSearchSickCircle(String keyWord) {
+        model.getSearchSick(keyWord, new IContract.IModelInquire() {
+            @Override
+            public void InquiresSuccess(InquireSickBean inquireSickBean) {
+                SearchActivity searchActivity = (SearchActivity) v;
+                searchActivity.InquireSuccess(inquireSickBean);
             }
         });
     }

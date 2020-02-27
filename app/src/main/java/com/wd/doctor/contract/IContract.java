@@ -2,6 +2,7 @@ package com.wd.doctor.contract;
 
 import com.wd.doctor.bean.AvatarBean;
 import com.wd.doctor.bean.DepartmentBean;
+import com.wd.doctor.bean.InquireSickBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
 import com.wd.doctor.bean.SickCircleBean;
@@ -62,6 +63,16 @@ public interface IContract {
     //查询科室
     interface IModelDepartment {
         void departmentesSuccess(DepartmentBean departmentBean);
+    }
+
+    //根据关键词查询病友圈
+    interface IViewInquire {
+        void InquireSuccess(InquireSickBean inquireSickBean);
+    }
+
+    //根据关键词查询病友圈
+    interface IModelInquire {
+        void InquiresSuccess(InquireSickBean inquireSickBean);
     }
 
 }

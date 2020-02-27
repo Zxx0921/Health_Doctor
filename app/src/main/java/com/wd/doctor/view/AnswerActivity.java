@@ -54,7 +54,13 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
         presenter.getDepartment();
         presenter.getPatient(3, 1, 10);
 
-
+        answerSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnswerActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -108,8 +114,6 @@ public class AnswerActivity extends BaseActivity implements IContract.IViewPatie
         departmentAdapter = new DepartmentAdapter(result, AnswerActivity.this);
         answertoprec.setAdapter(departmentAdapter);
         departmentAdapter.setDepartmentAdapter(new DepartmentAdapter.departmentAdapter() {
-
-
             @Override
             public void callBack(int i) {
                 id = result.get(i).getId();

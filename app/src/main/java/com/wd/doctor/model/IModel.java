@@ -2,6 +2,7 @@ package com.wd.doctor.model;
 
 import com.wd.doctor.bean.AvatarBean;
 import com.wd.doctor.bean.DepartmentBean;
+import com.wd.doctor.bean.InquireSickBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SickCircleBean;
 import com.wd.doctor.contract.IContract;
@@ -92,6 +93,24 @@ public class IModel {
                     @Override
                     public void accept(DepartmentBean departmentBean) throws Exception {
                         modelDepartment.departmentesSuccess(departmentBean);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
+    }
+
+    //根据关键字查询病友圈
+    public void getSearchSick(String keyWord, IContract.IModelInquire modelInquire) {
+        HealthDoctorUtil.getInstance().getCreateServer(HealthDoctor.class).getSearchSickCircle(keyWord)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<InquireSickBean>() {
+                    @Override
+                    public void accept(InquireSickBean inquireSickBean) throws Exception {
+                        modelInquire.InquiresSuccess(inquireSickBean);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

@@ -25,7 +25,7 @@ import java.util.TimerTask;
 public class ShowActivity extends BaseActivity implements IContract.IViewAvatar {
     SimpleDraweeView show_doctorimage;
     private String imagePic;
-    Button bt_answer,bt_inquiry;
+    Button bt_answer, bt_inquiry, bt_manager;
 
     @Override
     protected void initData() {
@@ -35,7 +35,15 @@ public class ShowActivity extends BaseActivity implements IContract.IViewAvatar 
         bt_answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity( new Intent(ShowActivity.this,AnswerActivity.class));
+                startActivity(new Intent(ShowActivity.this, AnswerActivity.class));
+            }
+        });
+        bt_manager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowActivity.this, MangerActivity.class);
+                 intent.putExtra("imagePic",imagePic);
+                startActivity(intent);
             }
         });
     }
@@ -45,6 +53,7 @@ public class ShowActivity extends BaseActivity implements IContract.IViewAvatar 
         show_doctorimage = findViewById(R.id.doctorimage);
         bt_answer = findViewById(R.id.bt_answer);
         bt_inquiry = findViewById(R.id.bt_inquiry);
+        bt_manager = findViewById(R.id.bt_manager);
     }
 
     @Override

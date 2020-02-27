@@ -2,6 +2,8 @@ package com.wd.doctor.utils;
 
 import com.wd.doctor.bean.AvatarBean;
 import com.wd.doctor.bean.DepartmentBean;
+import com.wd.doctor.bean.EmailCodeBean;
+import com.wd.doctor.bean.InquireSickBean;
 import com.wd.doctor.bean.PatientBean;
 import com.wd.doctor.bean.SettleinBean;
 import com.wd.doctor.bean.SickCircleBean;
@@ -24,6 +26,10 @@ public interface HealthDoctor {
     @GET("doctor/v1/findSystemImagePic")
     Observable<AvatarBean> getAvatar();
 
+    //发送邮箱验证码
+    @POST("doctor/v1/sendEmailCode")
+    Observable<EmailCodeBean> getEmailCode(@Field("email") String email);
+
     //申请入驻
     @POST("doctor/v1/applyJoin")
     Observable<SettleinBean> getSettlein(@Field("email") String email, @Field("code") String code
@@ -31,6 +37,7 @@ public interface HealthDoctor {
             , @Field("inauguralHospital") String inauguralHospital, @Field("departmentId") int departmentId
             , @Field("jobTitleId") int jobTitleId, @Field("personalProfile") String personalProfile
             , @Field("goodField") String goodField);
+
 
     //病友圈列表展示
     @GET("doctor/sickCircle/v1/findSickCircleList")
@@ -44,4 +51,9 @@ public interface HealthDoctor {
     //查询科室
     @GET("share/knowledgeBase/v1/findDepartment")
     Observable<DepartmentBean> getDepartment();
+
+    //根据关键字查询病友圈
+    @GET("doctor/sickCircle/v1/searchSickCircle")
+    Observable<InquireSickBean> getSearchSickCircle(@Query("keyWord") String keyWord);
+
 }
